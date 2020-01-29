@@ -1,42 +1,77 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import React from "react"
+import Logo from '../images/logo-img.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
+import { HeaderStyles } from './styles/HeaderStyles'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import Navigation from './Navigation'
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+const Header = () => {
+  const {
+    site,
+    menu: {
+      edges: [{ node: menu }],
+    },
+  } = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      menu: allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 2}}) {
+        totalCount
+        edges {
+          node {
+            items {
+              title
+              url
+              wordpress_id
+              child_items {
+                url
+                title
+                wordpress_id
+              }
+            }
+            name
+          }
+        }
+      }
+    }
+  `);
+return (
+  <HeaderStyles id="header">    
+    <div className="container">
+      <div className="row">
+        <div className="col-md-2" id="logo-container">
+          <Link to="/">
+            <img src={Logo} alt={site.siteMetadata.title} />
+          </Link>				
+        </div>
+        <div className="col-md-10" id="menu-container">
 
-Header.defaultProps = {
-  siteTitle: ``,
+          <div className="contact-info-section">
+            <ul>
+              <li><a href="tel:4402038239033"><FontAwesomeIcon icon={faPhoneAlt} /> +44 (0)203 823 9033</a></li>
+              <li><a href="mailto:admin@mlawebdesigns.co.uk"><FontAwesomeIcon icon={faEnvelope} /> admin@mlawebdesigns.co.uk</a></li>
+            </ul>
+          </div>
+
+              <nav className="navbar navbar-expand-lg navbar-light bg-light darkBlueMobile">
+                  <button className="navbar-brand linkbtn">Menu</button>
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
+                  <div className="collapse navbar-collapse justify-content-end" id="navbarNav">                			
+                      <Navigation menu={menu} />                			             
+                    </div>
+              </nav>            
+              </div>				
+        </div>
+      </div>     
+    </HeaderStyles>
+  )
 }
 
 export default Header

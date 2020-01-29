@@ -27,6 +27,45 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-source-wordpress',
+      options: {
+        excludedRoutes: [
+          '/wp/v2/users/**',
+          '/wp/v2/settings*',
+          '/wp/v2/themes*',
+        ],
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/pages",
+          "**/media",
+          "**/tags",
+          "**/taxonomies",
+          "**/users",
+          "**/menus",
+          "**/portfolio",
+          "**/service"
+        ],
+        baseUrl: 'mlawebdesigns.co.uk',
+        protocol: 'https',
+        hostingWPCOM: false,
+        useACF: true,
+        searchAndReplaceContentUrls: {
+          sourceUrl: 'https://www.mlawebdesigns.co.uk',
+          replacementUrl: "",
+        },    
+        plugins: [
+          {
+            resolve: 'gatsby-wordpress-inline-images',
+            options: {
+              baseUrl: 'mlawebdesigns.co.uk',
+              protocol: 'https',
+            }
+          }
+        ]    
+      },
+    }    
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
