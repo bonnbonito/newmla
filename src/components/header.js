@@ -14,7 +14,7 @@ const Header = ( {isInnerPage} ) => {
       edges: [{ node: menu }],
     },
   } = useStaticQuery(graphql`
-    query HeaderQuery {
+    query MenuQuery {
       menu: allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 2}}) {
         totalCount
         edges {
