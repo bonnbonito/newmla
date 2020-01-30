@@ -1,4 +1,6 @@
-import React, {useState} from "react"
+import React, {useState} from 'react'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -43,17 +45,17 @@ const BlogSection = () => {
     
     const [page, setPage] = useState(2);    
     const [hasNextPage, setHasNextPage] = useState(true);
-    const [blogs, setBlogs] = useState(data.allWordpressPost.edges.slice(0,3));
+    const [blogs, setBlogs] = useState(data.allWordpressPost.edges.slice(0,4));
 
     const onClickHandler = (e) => {
         e.preventDefault();
         if( ! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-            window.scrollBy(0, 1000);
+            window.scrollTo(0,document.body.scrollHeight);
         }        
         setPage(page+1); 
-        setBlogs( data.allWordpressPost.edges.slice(0, (3 * page) ) )
+        setBlogs( data.allWordpressPost.edges.slice(0, (4 * page) ) )
 
-        if ( (data.allWordpressPost.edges.length / 3) > page  ) {
+        if ( (data.allWordpressPost.edges.length / 4) > page  ) {
             setHasNextPage(true)
         } else {
             setHasNextPage(false)
@@ -61,12 +63,18 @@ const BlogSection = () => {
     };
     
     return (
+    <>
+    <Layout innerPage={true}>
+    <SEO title="Blog" />
+    <div className="page-title-container">
+			<h1 className="text-center">Blog</h1>
+		</div>
     <div className="page-section" id="blog-section">
 		<div className="container">
 			<div className="row" id="blog-wrap">
                 {blogs.map( ({node}) => {                        
                     return (
-                    <div className="col-md-4" key={node.id}>
+                    <div className="col-md-3" key={node.id}>
                         <Link to={node.link} >
                             <BlogBoxStyle style={{
                                 backgroundImage: `url(${node.featured_media.localFile.childImageSharp.fluid.srcWebp})`
@@ -100,6 +108,8 @@ const BlogSection = () => {
 			</div>
 		</div>
 	</div>
+    </Layout>
+    </>
     );
 };
 

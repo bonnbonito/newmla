@@ -5,6 +5,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
 
     const PageTemplate = path.resolve('./src/templates/page.js')
+    const PostTemplate = path.resolve('./src/templates/post.js')
+    const PortfolioTemplate = path.resolve('./src/templates/portfolio.js')
 
     const result = await graphql(`
         {
@@ -19,6 +21,28 @@ exports.createPages = async ({ graphql, actions }) => {
                     }
                 }
             }
+            allWordpressPost {
+                edges {
+                    node {
+                        id
+                        link
+                        status
+                        slug                        
+                        categories {
+                            id                            
+                        }
+                    }
+                }
+            }
+            allWordpressWpPortfolio {
+                edges {
+                    node {
+                        id
+                        slug
+                        status
+                    }
+                }
+            }
         }
     `);
 
@@ -26,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
         throw new Error(result.errors)
     }
 
-    const { allWordpressPage } = result.data
+    const { allWordpressPage, allWordpressPost, allWordpressWpPortfolio } = result.data
 
     allWordpressPage.edges.forEach(edge => {
         if (edge.node.status === 'publish') {
@@ -36,6 +60,29 @@ exports.createPages = async ({ graphql, actions }) => {
                 context: {
                     id: edge.node.id,                    
                     wpID: edge.node.wordpress_id
+                }
+            })
+        }
+    });
+
+    allWordpressPost.edges.forEach(edge => {
+        if (edge.node.status === 'publish') {
+            createPage({
+                path: edge.node.slug,
+                component: slash(PostTemplate),
+                context: {
+                    id: edge.node.id,
+                }
+            })
+        }
+    });
+    allWordpressWpPortfolio.edges.forEach(edge => {
+        if (edge.node.status === 'publish') {
+            createPage({
+                path: `/portfolio/${edge.node.slug}/`,
+                component: slash(PortfolioTemplate),
+                context: {
+                    id: edge.node.id,
                 }
             })
         }

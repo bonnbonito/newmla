@@ -61,6 +61,8 @@ module.exports = {
             options: {
               baseUrl: 'mlawebdesigns.co.uk',
               protocol: 'https',
+              withWebp: true, // enable WebP files generation
+		          useACF: true, // process <img> tags in ACF fields too
             }
           }
         ]    

@@ -7,7 +7,7 @@ import { HeaderStyles } from './styles/HeaderStyles'
 
 import Navigation from './Navigation'
 
-const Header = () => {
+const Header = ( {isInnerPage} ) => {
   const {
     site,
     menu: {
@@ -41,7 +41,7 @@ const Header = () => {
     }
   `);
 return (
-  <HeaderStyles id="header">    
+  <HeaderStyles id="header" className={isInnerPage ? "inner-header" : ""}>    
     <div className="container">
       <div className="row">
         <div className="col-md-2" id="logo-container">

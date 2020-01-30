@@ -34,6 +34,11 @@ a {
   font-family: "didot-regular" !important;
 }
 
+.inner-header {
+  border-bottom: 1px solid #1a1e21;
+  padding-bottom: 20px;
+}
+
 /*Customizing css*/
 .removePaddingRightLeft {
   padding-right: 0px !important;
@@ -294,10 +299,11 @@ div#contact-details h2 {
   margin-top: 40px;
   padding-bottom: 20px;
   border-bottom: 4px solid #000;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
 }
-.filter-container ul li a:hover {
+.filter-container ul li a:hover,
+.filter-container ul li a.selected {
   border-bottom: 4px solid #ba9d80;
   text-decoration: none;
 }
@@ -381,7 +387,7 @@ div#contact-details h2 {
 button.btn.btn-link {
   color: #000;
 }
-.card-header i {
+.card-header svg {
   float: right;
   font-size: 16px;
   margin-top: 13px;
@@ -390,6 +396,10 @@ button.btn.btn-link {
 }
 #faq-section {
   background-color: #fbfafa;
+}
+
+#faq-section .accordion > .card {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
 }
 
 /*Desktop Display*/
