@@ -204,13 +204,13 @@ const ContentMarketing = () => (
             <p className="text-center">
               This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel
               velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
-              auctor,{" "}
+              auctor,
             </p>
             <p className="text-center">
               <Link to="/contact-us" className="brown-btn">
                 Contact Us &nbsp; &nbsp;
                 <FontAwesomeIcon icon={faArrowRight} />
-              </Link>{" "}
+              </Link>
             </p>
           </div>
         </div>
