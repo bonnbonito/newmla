@@ -10,12 +10,14 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./Footer"
-import { library } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { faTwitter, faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./layout.css"
 
+config.autoAddCss = false;
 library.add(faEnvelope, faPhoneAlt, faTwitter, faFacebookF,faGooglePlusG)
 
 const Layout = ({ children, innerPage }) => {
