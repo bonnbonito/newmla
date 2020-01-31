@@ -8,8 +8,7 @@ import { HeaderStyles } from './styles/HeaderStyles'
 import Navigation from './Navigation'
 
 const Header = ( {siteTitle, isInnerPage} ) => {
-  const {
-    site,
+  const {    
     menu: {
       edges: [{ node: menu }],
     },
