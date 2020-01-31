@@ -18,6 +18,7 @@ export const HeaderStyles = styled.div`
 }
 .contact-info-section ul li a svg {
   color: #bfa282;
+  font-size: 14px;
 }
 
 #menu-container nav ul li a {
