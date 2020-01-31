@@ -7,7 +7,7 @@ import { HeaderStyles } from './styles/HeaderStyles'
 
 import Navigation from './Navigation'
 
-const Header = ( {isInnerPage} ) => {
+const Header = ( {siteTitle, isInnerPage} ) => {
   const {
     site,
     menu: {
@@ -41,7 +41,7 @@ return (
       <div className="row">
         <div className="col-md-2" id="logo-container">
           <Link to="/">
-            <img src={Logo} alt={site.siteMetadata.title} />
+            <img src={Logo} alt={siteTitle} />
           </Link>				
         </div>
         <div className="col-md-10" id="menu-container">

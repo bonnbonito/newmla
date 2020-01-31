@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "didot-regular";
-  src: url("../../public/static/fonts/Didot-Regular.ttf");
+  src: url("../fonts/Didot-Regular.ttf");
 }
 
 body {
