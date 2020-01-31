@@ -47,8 +47,8 @@ return (
 
           <div className="contact-info-section">
             <ul>
-              <li><a href="tel:4402038239033"><FontAwesomeIcon icon={faPhoneAlt} /> +44 (0)203 823 9033</a></li>
-              <li><a href="mailto:admin@mlawebdesigns.co.uk"><FontAwesomeIcon icon={faEnvelope} /> admin@mlawebdesigns.co.uk</a></li>
+              <li><a href="tel:4402038239033"><FontAwesomeIcon icon={faPhoneAlt} style={{fontSize:`14px`}} /> +44 (0)203 823 9033</a></li>
+              <li><a href="mailto:admin@mlawebdesigns.co.uk"><FontAwesomeIcon icon={faEnvelope} style={{fontSize:`14px`}} /> admin@mlawebdesigns.co.uk</a></li>
             </ul>
           </div>
 
