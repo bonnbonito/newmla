@@ -2,7 +2,6 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import React from "react"
 import Logo from '../images/logo-img.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
 import { HeaderStyles } from './styles/HeaderStyles'
 
 import Navigation from './Navigation'
@@ -47,8 +46,8 @@ return (
 
           <div className="contact-info-section">
             <ul>
-              <li><a href="tel:4402038239033"><FontAwesomeIcon icon={faPhoneAlt} style={{fontSize:`14px`}} /> +44 (0)203 823 9033</a></li>
-              <li><a href="mailto:admin@mlawebdesigns.co.uk"><FontAwesomeIcon icon={faEnvelope} style={{fontSize:`14px`}} /> admin@mlawebdesigns.co.uk</a></li>
+              <li><a href="tel:4402038239033"><FontAwesomeIcon icon="phone-alt" /> +44 (0)203 823 9033</a></li>
+              <li><a href="mailto:admin@mlawebdesigns.co.uk"><FontAwesomeIcon icon="envelope" /> admin@mlawebdesigns.co.uk</a></li>
             </ul>
           </div>
 
