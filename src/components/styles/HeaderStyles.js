@@ -5,7 +5,6 @@ export const HeaderStyles = styled.div`
     border-bottom: 1px solid #1a1e21;
     padding-bottom: 20px;
   }
-
   .contact-info-section ul li a {
     color: #000;
   }
@@ -20,22 +19,34 @@ export const HeaderStyles = styled.div`
     color: #bfa282;
     font-size: 14px;
   }
-
-  #menu-container nav a {
-    padding: 0px 45px;
+  #logo-container {
+    text-align: center;
+  }
+  @media (min-width: 992px) {
+    #menu-container nav a {
+      padding: 0px 45px;
+    }
+    #menu-container nav a {
+      border-right: 1px solid #ebebeb;
+    }
+  }
+  .contact-info-section ul {
+    padding-left: 0;
   }
   .contact-info-section ul li a {
     padding: 0px 25px !important;
   }
-
+  @media (max-width: 991px) {
+    .contact-info-section {
+      text-align: center;
+    }
+  }
   #menu-container nav a {
     color: #000 !important;
-    border-right: 1px solid #ebebeb;
   }
   #menu-container nav > a:last-child {
     border-right: none !important;
   }
-
   #menu-container nav {
     background-color: transparent !important;
   }

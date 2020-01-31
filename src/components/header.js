@@ -58,7 +58,11 @@ const Header = ({ siteTitle, isInnerPage }) => {
               </ul>
             </div>
 
-            <Navbar bg="light" expand="lg" className="darkBlueMobile">
+            <Navbar
+              bg="light"
+              expand="lg"
+              className="darkBlueMobile justify-content-end"
+            >
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse
                 id="basic-navbar-nav"
