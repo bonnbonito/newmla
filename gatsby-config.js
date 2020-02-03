@@ -14,7 +14,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    'gatsby-plugin-styled-components',
+    "gatsby-plugin-styled-components",
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -29,12 +29,12 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-wordpress',
+      resolve: "gatsby-source-wordpress",
       options: {
         excludedRoutes: [
-          '/wp/v2/users/**',
-          '/wp/v2/settings*',
-          '/wp/v2/themes*',
+          "/wp/v2/users/**",
+          "/wp/v2/settings*",
+          "/wp/v2/themes*",
         ],
         includedRoutes: [
           "**/categories",
@@ -46,29 +46,25 @@ module.exports = {
           "**/users",
           "**/menus",
           "**/portfolio",
-          "**/service"
+          "**/service",
         ],
-        baseUrl: 'mlawebdesigns.co.uk',
-        protocol: 'https',
+        baseUrl: "mlawebdesigns.co.uk",
+        protocol: "https",
         hostingWPCOM: false,
         useACF: true,
-        searchAndReplaceContentUrls: {
-          sourceUrl: 'https://www.mlawebdesigns.co.uk',
-          replacementUrl: "",
-        },    
         plugins: [
           {
-            resolve: 'gatsby-wordpress-inline-images',
+            resolve: "gatsby-wordpress-inline-images",
             options: {
-              baseUrl: 'mlawebdesigns.co.uk',
-              protocol: 'https',
+              baseUrl: "mlawebdesigns.co.uk",
+              protocol: "https",
               withWebp: true, // enable WebP files generation
-		          useACF: true, // process <img> tags in ACF fields too
-            }
-          }
-        ]    
-      },      
-    }      
+              useACF: true, // process <img> tags in ACF fields too
+            },
+          },
+        ],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

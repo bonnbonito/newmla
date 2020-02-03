@@ -20,6 +20,7 @@ const Header = ({ siteTitle, isInnerPage }) => {
               title
               url
               wordpress_id
+              slug
               child_items {
                 url
                 title
@@ -86,7 +87,7 @@ const Header = ({ siteTitle, isInnerPage }) => {
                         ))}
                       </NavDropdown>
                     ) : (
-                      <Nav.Link href={item.url} key={index}>
+                      <Nav.Link href={item.slug} key={index}>
                         {item.title}
                       </Nav.Link>
                     )
