@@ -53,7 +53,7 @@ const Header = ({ siteTitle, isInnerPage }) => {
                 </li>
                 <li>
                   <a href="mailto:admin@mlawebdesigns.co.uk">
-                    <FontAwesomeIcon icon="envelope" />{" "}
+                    <FontAwesomeIcon icon="envelope" />
                     admin@mlawebdesigns.co.uk
                   </a>
                 </li>

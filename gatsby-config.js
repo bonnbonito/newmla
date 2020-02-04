@@ -49,25 +49,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `MLA Web Design`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#000`,
-        display: `minimal-ui`,
-        icon: `${__dirname}/src/images/favicon.ico`, // This path is relative to the root of the site.
-        icons: [
-          {
-            src: `${__dirname}/src/images/android-chrome-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`,
-          },
-          {
-            src: `${__dirname}/src/images/android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`,
-          },
-        ], // Add or remove icon sizes as desired
+        name: "MLA Web Designs",
+        short_name: "MLA",
+        start_url: "/",
+        background_color: "#6b37bf",
+        theme_color: "#6b37bf",
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: "standalone",
+        icon: "src/images/logo-icon.png", // This path is relative to the root of the site.
+        // An optional attribute which provides support for CORS check.
+        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+        // Any invalid keyword or empty string defaults to `anonymous`
+        crossOrigin: `use-credentials`,
       },
     },
     `gatsby-plugin-offline`,

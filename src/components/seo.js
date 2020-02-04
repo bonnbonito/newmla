@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import innertext from "innertext"
 
 const SEO = ({ description, lang, meta, title, path, social, front }) => {
+  console.log(social)
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -132,9 +133,10 @@ const SEO = ({ description, lang, meta, title, path, social, front }) => {
           },
           {
             property: `og:image`,
-            content: social
-              ? social.og_fb_image.localFile.childImageSharp.fluid.srcWebp
-              : null,
+            content:
+              social && social.og_fb_image
+                ? social.og_fb_image.localFile.childImageSharp.fluid.srcWebp
+                : null,
           },
           {
             property: `og:type`,

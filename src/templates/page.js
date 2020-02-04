@@ -10,7 +10,11 @@ const PageTemplate = ({ data }) => {
     <Layout>
       <SEO
         title={page.yoast_title}
-        description={page.acf.social_tags.og_twitter_description}
+        description={
+          page.acf.social_tags
+            ? page.acf.social_tags.og_twitter_description
+            : page.excerpt
+        }
         social={page.acf.social_tags}
         front={false}
       />
@@ -28,6 +32,7 @@ export const pageQuery = graphql`
       title
       content
       yoast_title
+      excerpt
       acf {
         quote
         schema
