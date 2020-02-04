@@ -28,6 +28,7 @@ const PortfolioItems = () => {
             link
             id
             service
+            slug
             path
           }
         }

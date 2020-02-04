@@ -79,7 +79,7 @@ const BlogSection = () => {
               {blogs.map(({ node }) => {
                 return (
                   <div className="col-md-3" key={node.id}>
-                    <Link to={node.link}>
+                      <Link to={node.slug}>
                       <BlogBoxStyle
                         style={{
                           backgroundImage: `url(${node.featured_media.localFile.childImageSharp.fluid.srcWebp})`,
@@ -106,7 +106,9 @@ const BlogSection = () => {
                       >
                         <FontAwesomeIcon icon={faTwitter} />
                       </a>
-                      <a href={node.link}>
+                      <a
+                        href={`mailto:?&subject=${node.title}&body=${node.link}`}
+                      >
                         <FontAwesomeIcon icon={faEnvelope} />
                       </a>
                     </div>
