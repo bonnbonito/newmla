@@ -20,10 +20,12 @@ const Header = ({ siteTitle, isInnerPage }) => {
               title
               url
               wordpress_id
+              slug
               child_items {
                 url
                 title
                 wordpress_id
+                slug
               }
             }
             name
@@ -78,7 +80,7 @@ const Header = ({ siteTitle, isInnerPage }) => {
                       >
                         {item.child_items.map(child => (
                           <React.Fragment key={child.wordpress_id}>
-                            <NavDropdown.Item href={child.url}>
+                            <NavDropdown.Item href={`/${child.slug}`}>
                               {child.title}
                             </NavDropdown.Item>
                             <div className="dropdown-divider"></div>
@@ -86,7 +88,7 @@ const Header = ({ siteTitle, isInnerPage }) => {
                         ))}
                       </NavDropdown>
                     ) : (
-                      <Nav.Link href={item.url} key={index}>
+                      <Nav.Link href={`/${item.slug}`} key={index}>
                         {item.title}
                       </Nav.Link>
                     )
