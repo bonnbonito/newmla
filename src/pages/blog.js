@@ -79,7 +79,7 @@ const BlogSection = () => {
               {blogs.map(({ node }) => {
                 return (
                   <div className="col-md-3" key={node.id}>
-                    <Link to={node.slug}>
+                      <Link to={node.slug}>
                       <BlogBoxStyle
                         style={{
                           backgroundImage: `url(${node.featured_media.localFile.childImageSharp.fluid.srcWebp})`,

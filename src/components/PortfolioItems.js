@@ -36,6 +36,7 @@ const PortfolioItems = () => {
       allWordpressWpService {
         edges {
           node {
+            id
             slug
             name
             wordpress_id
@@ -92,7 +93,6 @@ const PortfolioItems = () => {
         <div className="container">
           <div className="row">
             {data.allWordpressWpPortfolio.edges.map(({ node }) => {
-              console.log(node.service.indexOf(filter))
               return (
                 <div
                   className={`col-md-4 text-center ${
