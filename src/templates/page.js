@@ -5,7 +5,6 @@ import { graphql } from "gatsby"
 
 const PageTemplate = ({ data }) => {
   const page = data.currentPage
-  console.log(data)
   return (
     <Layout>
       <SEO
@@ -35,7 +34,6 @@ export const pageQuery = graphql`
       excerpt
       acf {
         quote
-        schema
         social_tags {
           og_fb_description
           og_fb_title

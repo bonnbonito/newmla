@@ -12,7 +12,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import innertext from "innertext"
 
 const SEO = ({ description, lang, meta, title, path, social, front }) => {
-  console.log(social)
   const { site } = useStaticQuery(
     graphql`
       query {

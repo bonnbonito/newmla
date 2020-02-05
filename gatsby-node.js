@@ -56,16 +56,19 @@ exports.createPages = async ({ graphql, actions }) => {
     allWordpressWpPortfolio,
   } = result.data
 
+  const notCreate = [
+    "our-story",
+    "content-marketing",
+    "e-commerce-websites",
+    "portfolio",
+    "contact-us",
+    "blog",
+  ]
+
   allWordpressPage.edges.forEach(edge => {
     if (
       edge.node.status === "publish" &&
-      edge.node.slug.indexOf([
-        "our-story",
-        "content-marketing",
-        "e-commerce-websites",
-        "portfolio",
-        "contact-us",
-      ]) === -1
+      notCreate.indexOf(edge.node.slug) === -1
     ) {
       createPage({
         path: edge.node.slug,

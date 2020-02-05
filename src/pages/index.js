@@ -12,7 +12,6 @@ import BlogSection from "../components/BlogSection"
 
 const IndexPage = ({ data }) => {
   const page = data.wordpressPage
-  console.log(data)
   return (
     <Layout>
       <SEO
