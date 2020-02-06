@@ -72,7 +72,7 @@ const ContactPage = ({ data }) => {
     phone: "",
     email: "",
     services: "",
-    inqury: "",
+    inquiry: "",
   })
 
   const page = data.currentPage
@@ -93,18 +93,23 @@ const ContactPage = ({ data }) => {
 
     console.log(bodyFormData)
 
-    axios({
-      method: "post",
-      url:
+    axios
+      .post(
         "https://www.mlawebdesigns.co.uk/wp-json/contact-form-7/v1/contact-forms/34/feedback",
-      data: bodyFormData,
-      config: { headers: { "Content-Type": "multipart/form-data" } },
-    })
+        bodyFormData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      )
       .then(function(response) {
         console.log(response)
         setState({
-          ...form,
           sending: false,
+          name: "",
+          phone: "",
+          email: "",
+          services: "",
+          inquiry: "",
         })
       })
       .catch(function(response) {
@@ -196,11 +201,12 @@ const ContactPage = ({ data }) => {
                       </div>
                       <div className="col-md-12">
                         <textarea
+                          placeholder="Inquiry"
                           name="inquiry"
                           required
-                          value={form.inquiry}
                           onChange={updateField}
-                        ></textarea>
+                          value={form.inquiry}
+                        />
                       </div>
                       <div className="col-md-6">
                         <input
